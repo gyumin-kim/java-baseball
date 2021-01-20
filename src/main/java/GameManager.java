@@ -34,6 +34,7 @@ public class GameManager {
         }
     }
 
+    // 여기도 2depth가 넘어가네요.
     private Numbers getPlayerNumbersByInput() {
         Numbers numbers = null;
         String playerNumber = input.getInputValue(OutputMessage.PLEASE_ENTER_NUMBER.toString());
