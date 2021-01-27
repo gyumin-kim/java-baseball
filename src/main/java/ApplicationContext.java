@@ -1,8 +1,12 @@
 public class ApplicationContext {
 
-    private static final Input input = new KeyboardInput();
+    private final Input input;
 
-    public static GameManager getGameManager() {
+    public ApplicationContext() {
+        this.input = new KeyboardInput();
+    }
+
+    public GameManager getGameManager() {
         return new GameManager(input);
     }
 }
