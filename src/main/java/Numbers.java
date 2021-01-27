@@ -1,5 +1,6 @@
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -24,11 +25,10 @@ public class Numbers {
         if (numbers.size() < NUMBERS_REQUIRED_SIZE) {
             throw new IllegalArgumentException(ExceptionMessage.NOT_ENOUGH_ELEMENTS.toString());
         }
-        StringBuilder numbersString = new StringBuilder();
-        for (int num : numbers) {
-            numbersString.append(num);
-        }
-        validate(numbersString.toString());
+        String numbersString = numbers.stream()
+                .map(Objects::toString)
+                .collect(Collectors.joining());
+        validate(numbersString);
     }
 
     private void validate(String numbersString) {
