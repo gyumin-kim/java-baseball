@@ -1,7 +1,8 @@
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Numbers {
 
@@ -64,11 +65,9 @@ public class Numbers {
     }
 
     private List<Integer> convertStringToCollectionOfIntegers(String numbersString) {
-        List<Integer> numbers = new ArrayList<>();
-        for (int i = 0; i < numbersString.length(); i++) {
-            numbers.add(Integer.valueOf(numbersString.substring(i, i + 1)));
-        }
-        return numbers;
+        return Stream.of(numbersString)
+                .map(Integer::parseInt)
+                .collect(Collectors.toList());
     }
 
     public List<Integer> getNumbers() {
